@@ -12,8 +12,7 @@ http.createServer(async (req, res) => {
         writeFile(200, 'application/json', users, res)
     } else if (req.url.match(/\/api\/users\/(\d+)/) && req.method === "GET") {
         const users = JSON.parse(await readFile('db', 'users.json'))
-        const match = req.url.match(/\/api\/users\/(\d+)/)
-        const id = match[1]
+        const id = path.basename(req.url)
         const person = users.find(elm => elm.id == id)
         if (!person) {
             const errPage = await readFile('pages', 'error.html')
@@ -24,11 +23,10 @@ http.createServer(async (req, res) => {
 
     } else if (req.url.match(/^\/api\/users\/\?_limit=(\d+)/) && req.method === "GET") {
         const users = JSON.parse(await readFile('db', 'users.json'))
-        const match = req.url.match(/^\/api\/users\/\?_limit=(\d+)$/)
-        const id = +match[1]
+        const arrQuery = path.basename(req.url).split('=')
+        const id = +arrQuery[1]
         const limitedUsers = users.slice(0, id)
         writeFile(200, 'application/json', JSON.stringify(limitedUsers), res)
-
     } else {
         const errPage = await readFile('pages', 'error.html')
         writeFile(404, 'text/html', errPage, res)
