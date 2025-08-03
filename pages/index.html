@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        header {
+            background-color: #e89908;
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 200px;
+            text-align: center;
+            padding: 12px 25px;
+            background-color: #e89908;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #cf7d00;
+        }
+
+        .button-container {
+            margin-top: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Բարի գալուստ SmartCode 🏠</h1>
+    </header>
+
+    <main>
+        <p>
+            Բարի գալուստ մեր գլխավոր էջ։ Այստեղից կարող եք դիտել օգտատերերի ցուցակը կամ ընտրել կոնկրետ օգտատեր։
+        </p>
+
+        <div class="button-container">
+            <a href="http://localhost:3000/api/users" class="btn">See All Users</a>
+            <a href="http://localhost:3000/api/users/1" class="btn">User 1</a>
+            <a href="http://localhost:3000/api/users/2" class="btn">User 2</a>
+            <a href="http://localhost:3000/api/users/3" class="btn">User 3</a>
+            <a href="http://localhost:3000/api/users/4" class="btn">User 4</a>
+        </div>
+
+    </main>
+
+</body>
+</html>
